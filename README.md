@@ -23,7 +23,11 @@ transcribe_interview/
 └── README.md              # このマニュアル
 ```
 
-このような構成は、ファイル管理がしやすくなるため、初心者にもおすすめです ([jp.minitool.com](https://jp.minitool.com/lib/m4a.html)).
+git cloneした後は、以下のフォルダに入って作業をしてください。
+```sh
+cd transcribe_interview
+```
+
 
 ---
 
@@ -31,7 +35,13 @@ transcribe_interview/
 
 ### 3.1. Python のダウンロード
 
-- Python の公式サイト ([Python.org](https://www.python.org/downloads/)) から、最新の Python をダウンロードしてインストールしてください。
+Pythonが入っているかを以下のコードで確認してください。
+```
+python3 --version
+```
+
+- 入っていない場合は、Python の公式サイト ([Python.org](https://www.python.org/downloads/)) から、最新の Python をダウンロードしてインストールしてください。
+
 
 ### 3.2. ffmpeg のインストール
 
@@ -42,24 +52,24 @@ transcribe_interview/
   ```
 - **Windows** や **Linux** の場合は、[ffmpeg の公式サイト](https://ffmpeg.org/download.html) からバイナリをダウンロードし、環境変数にパスを追加してください ([jp.cyberlink.com](https://jp.cyberlink.com/blog/media-converter/1931/best-audio-editing-tool-to-convert-m4a-to-mp3)).
 
-### 3.3. Whisper のインストール
+
+### 3.3. 仮想環境の作成とパッケージのインストール
+
+- プロジェクトルートディレクトリで仮想環境を作成し、必要なパッケージをインストールします。
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate  # Windows の場合は .venv\Scripts\activate
+  pip install -r requirements.txt
+  ```
+  ※ requirements.txt には Whisper やその他必要なパッケージのリストを記載してください ([Python公式サイト](https://www.python.org)).
+
+### 3.4. Whisper のインストール
 
 - Whisper は Homebrew 経由ではなく、Python の pip コマンドでインストールします。  
   以下のコマンドを使用してインストールしてください：
   ```bash
   pip install git+https://github.com/openai/whisper.git
   ```
-  詳細は [aiacademy.jp](https://aiacademy.jp/media/?p=3512) や [qiita.com](https://qiita.com/daifuku10/items/c170a1361c232914f230) を参照してください。
-
-### 3.4. 仮想環境の作成とパッケージのインストール
-
-- プロジェクトルートディレクトリで仮想環境を作成し、必要なパッケージをインストールします。
-  ```bash
-  python -m venv .venv
-  source .venv/bin/activate  # Windows の場合は .venv\Scripts\activate
-  pip install -r requirements.txt
-  ```
-  ※ requirements.txt には Whisper やその他必要なパッケージのリストを記載してください ([Python公式サイト](https://www.python.org)).
 
 ---
 
